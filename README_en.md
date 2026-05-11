@@ -1,7 +1,7 @@
 > **Original Author & Source**
 > This mod is adapted from **freude916**'s [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart).
 > Original repository: <https://github.com/freude916/sts2-quickRestart>
-> This version is a local adaptation for **Slay the Spire 2 v0.103.2**, based on the original author's code.
+> This version is a local adaptation for **Slay the Spire 2 v0.105.1**, based on the original author's code.
 
 [English](./README_en.md) / [中文](./README.md)
 

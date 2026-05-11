@@ -70,7 +70,7 @@ public static class PauseMenuPatch
         QuickSaveLoad.QuickLoad();
     }
 
-    // v0.103.2 adaptation: mod is shipped without a PCK, so the LocString lookup
+    // v0.105.1 adaptation: mod is shipped without a PCK, so the LocString lookup
     // would return the raw key. Pick a label based on the current Godot locale.
     private static string GetRetryLabel()
     {

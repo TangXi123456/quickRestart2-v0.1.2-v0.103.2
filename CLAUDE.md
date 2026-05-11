@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is a **Slay the Spire 2** mod that adds a "Retry" (重打) button to the pause menu. When clicked, it reloads the game's autosave (`current_run.save`), effectively restarting the current fight. It only works in singleplayer.
 
-**Original Author & Source:** This mod is adapted from **freude916**'s [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart). This version is a local adaptation for Slay the Spire 2 v0.103.2, based on the original author's code.
+**Original Author & Source:** This mod is adapted from **freude916**'s [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart). This version is a local adaptation for Slay the Spire 2 v0.105.1, based on the original author's code.
 
 The mod is built as a **C# / .NET 9** DLL that uses **Harmony** runtime patching to inject into the game's code. It targets the Godot 4.5.1 / MegaDot engine.
 
@@ -55,10 +55,10 @@ The game loads mods via a `[ModInitializer(nameof(MethodName))]` attribute place
 4. Re-initializes networking and fades back in
 
 **Version compatibility note:** `SetUpSavedSinglePlayer` changed signature between game versions:
-- **v0.103.2**: synchronous `void SetUpSavedSinglePlayer(RunState, SerializableRun)`
+- **v0.105.1**: synchronous `void SetUpSavedSinglePlayer(RunState, SerializableRun)`
 - **v0.104+**: asynchronous `Task SetUpSavedSinglePlayer(...)` (requires `await`)
 
-The current codebase targets **v0.103.2** and uses the synchronous call.
+The current codebase targets **v0.105.1** and uses the synchronous call.
 
 ### Localization Strategy
 
@@ -95,7 +95,7 @@ The `decompiled/` folder contains decompiled game source code used as a referenc
 ```json
 {
   "id": "quickRestart2",
-  "version": "v0.1.2-v0.103.2-local",
+  "version": "v0.1.2-v0.105.1-local",
   "has_pck": false,
   "has_dll": true,
   "affects_gameplay": false
