@@ -6,6 +6,11 @@
 
 在暂停菜单中新增一个**「重打」**按钮。点击后读取游戏自动存档（`current_run.save`），快速重开本场战斗或本个事件。仅在单人模式下生效。
 
+> **原作者与来源**
+> 本 Mod 改编自 **freude916** 的 [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart)。
+> 原作者仓库：<https://github.com/freude916/sts2-quickRestart>
+> 当前版本为基于原作者代码适配 **Slay the Spire 2 v0.103.2** 的本地修改版。
+
 更新可能不及时，请记得提出 issue 。
 
 上次更新时： v0.1.104 适配 public-beta v0.104 版本。 v0.1.2 适配 public v0.103 版本。

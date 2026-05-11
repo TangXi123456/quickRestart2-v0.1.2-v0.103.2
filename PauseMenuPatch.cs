@@ -1,7 +1,6 @@
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.addons.mega_text;
-using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Nodes.GodotExtensions;
 using MegaCrit.Sts2.Core.Nodes.Screens.PauseMenu;
@@ -35,7 +34,7 @@ public static class PauseMenuPatch
             retryButton.Name = "Retry";
             MakeButtonVisualsUnique(retryButton);
             retryButton.GetNode<MegaLabel>("Label")
-                .SetTextAutoSize(new LocString("gameplay_ui", "QUICKRESTART2.pause_menu.retry").GetFormattedText());
+                .SetTextAutoSize(GetRetryLabel());
 
             // Insert before GiveUp
             NPauseMenuButton giveUpButton = buttonContainer.GetNode<NPauseMenuButton>("GiveUp");
@@ -69,6 +68,23 @@ public static class PauseMenuPatch
         // Immediately disable the retry button to prevent rapid clicks
         btn.Disable();
         QuickSaveLoad.QuickLoad();
+    }
+
+    // v0.103.2 adaptation: mod is shipped without a PCK, so the LocString lookup
+    // would return the raw key. Pick a label based on the current Godot locale.
+    private static string GetRetryLabel()
+    {
+        string locale = TranslationServer.GetLocale() ?? "en";
+        if (locale.StartsWith("zh", StringComparison.OrdinalIgnoreCase)) return "重打";
+        if (locale.StartsWith("ja", StringComparison.OrdinalIgnoreCase)) return "再挑戦";
+        if (locale.StartsWith("ko", StringComparison.OrdinalIgnoreCase)) return "다시 시도";
+        if (locale.StartsWith("fr", StringComparison.OrdinalIgnoreCase)) return "Réessayer";
+        if (locale.StartsWith("de", StringComparison.OrdinalIgnoreCase)) return "Erneut";
+        if (locale.StartsWith("es", StringComparison.OrdinalIgnoreCase)) return "Reintentar";
+        if (locale.StartsWith("ru", StringComparison.OrdinalIgnoreCase)) return "Заново";
+        if (locale.StartsWith("pt", StringComparison.OrdinalIgnoreCase)) return "Tentar";
+        if (locale.StartsWith("it", StringComparison.OrdinalIgnoreCase)) return "Riprova";
+        return "Retry";
     }
 
     private static void MakeButtonVisualsUnique(NPauseMenuButton retryButton)

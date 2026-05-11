@@ -11,3 +11,7 @@ Properties/
 *.import
 *.uid
 *.user
+
+# Decompiled game source code — excluded for copyright reasons
+decompiled/
+releases/

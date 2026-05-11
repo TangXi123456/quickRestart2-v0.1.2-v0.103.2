@@ -70,10 +70,13 @@
         <Compile Remove="materials\**"/>
         <Compile Remove="shaders\**"/>
         <Compile Remove="images\**"/>
+        <Compile Remove="decompiled\**"/>
         <EmbeddedResource Remove="quickRestart2\**"/>
         <EmbeddedResource Remove="materials\**"/>
         <EmbeddedResource Remove="shaders\**"/>
         <EmbeddedResource Remove="images\**"/>
+        <EmbeddedResource Remove="decompiled\**"/>
+        <None Remove="decompiled\**"/>
     </ItemGroup>
 
     <ItemGroup>
