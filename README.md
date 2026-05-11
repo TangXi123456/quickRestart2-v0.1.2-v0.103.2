@@ -11,16 +11,7 @@
 > 原作者仓库：<https://github.com/freude916/sts2-quickRestart>
 > 当前版本为基于原作者代码适配 **Slay the Spire 2 v0.105.1** 的本地修改版。
 
-更新可能不及时，请记得提出 issue 。
 
-上次更新时： v0.1.104 适配 public-beta v0.104 版本。 v0.1.2 适配 public v0.103 版本。
-
-> 薄荷尖塔的维护者也搓了一个，安全性应该比我这个 Vibe 的强，但是他好像忘记更新 beta 了，你自己看着办吧。
-> <https://github.com/erasels/StS2-Quick-Restart>
-
----
-
-> *这个 Mod 的 Star 怪多的，在这里放些 Mod 使用指南好了。*
 
 # 🎮 玩家指南
 
