@@ -4,7 +4,7 @@
 
 ## 简介
 
-在暂停菜单中新增一个**「重打」**按钮。点击后读取游戏自动存档（`current_run.save`），快速重开本场战斗或本个事件。仅在单人模式下生效。
+在暂停菜单中新增一个**「重打」**按钮。点击后读取游戏自动存档（`current_run.save`），快速重开本场战斗或本个事件。仅在单人模式下生效。注意该mod在原作者的代码仓库下由ClaudeCode适配的新版本不保证会出现存档崩坏等bug，目前游戏频繁更新mod适配可能不及时。
 
 > **原作者与来源**
 > 本 Mod 改编自 **freude916** 的 [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart)。
@@ -274,38 +274,5 @@ saves文件夹可能有下列文件：
 **代码反编译：** 尖塔2没有进行任何混淆，可使用 [ilSpy](https://www.github.com/icsharpcode/ILSpy) 或[dnSpyEx](https://github.com/dnSpyEx/dnSpy) 反汇编出游戏源代码。
 **资源解包：** 使用 [GD RE Tools 的 gdsdecomp](https://github.com/GDRETools/gdsdecomp/) 将游戏的资源解包。相较于下面的 pck explorer， gdsdecomp 会还原.import的压缩格式到原始路径，甚至拆分纹理图集 (Atlas)。
 
-**资源打包：**
-* 您需要将资源打包成 `.pck` 文件才能被识别。
-* 尖塔2使用的是 Godot 4.5.1 的一个魔改版本 [MegaDot](https://megadot.megacrit.com/)，您也可以使用正常的 [Godot 4.5.1](https://godotengine.org/download/archive/) 存档版本来打包资源。*(更新的 Godot 版本打包出的 pck 会被游戏拒绝)*。
-* *Spine 资源提示*：Godot 使用 [Spine Runtime for Godot](https://esotericsoftware.com/spine-godot) 这一 GDExtension 来打包 Spine 资源。您需要将它安装到您的 Godot 项目中。（GDExtension 是 项目级的而非全局的，所以您似乎需要在每个项目中都安装一次，我也不确定是否有更好的方法来全局安装。）
-* **无美术资源打包**：如果您不想要任何的美术资源，可以使用 [PCK Explorer](https://github.com/DmitriySalnikov/GodotPCKExplorer) 来创建一个仅包含 `mod_manifest.json` 的平凡 pck 文件。命令行参数的版本号请设为 `3.4.5.1`。
 
-## 从《杀戮尖塔 1》迁移
-* **引擎变化**：塔1使用 Java 编写，塔2 迁移到了 C# (Godot)。Mod 脚本需要完全重写。似乎有人正在研究源生成秘法。
-* **Spine 动画变化**：塔1使用 Spine 3.4 且为 JSON 骨架；塔2使用 Spine 4.2 且为二进制 (`.skel`) 骨架。
-* **转换工具**：建议使用[SpineSkeletonDataConverter](https://github.com/wang606/SpineSkeletonDataConverter) 进行二进制迁移。
-（尽管如此，这个转换工具最低也只支持 Spine 3.5 ，打开塔 1 的 JSON 强行将 version 字符串改成 3.5 才能开始工作，不保证兼容性）
-* **注意事项**：请注意动画键名和缩放比例都发生了改变。经测试，塔1“故障机器人”迁移后的缩放比例大约是 10 倍（应用在 root 骨骼上），但不同的 Mod 角色情况可能有所不同。
-* **动画**：塔1 的骨架文件仅内置了 待机 和 受击 两种动画轴，大部分攻击动画是独立的，死亡是立绘； 塔2 则内置了 6 种，移植也可能需要补全。
 
-## 开发者交流群组
-
-*(注：开发群内讨论偏向技术，如果您无意开发请勿加入)*
-* 哔哩哔哩 UP 主 *蝴蝶是幼虫* 的开发群：`812670568`
-* *GlitchedReme* 的教程群：`542370192`
-* 在上面的表格里有更多群组，有的是开发者，有的是已经准备发布的 Mod 的主题讨论。
-
-**任务结束，请自由探索塔二。**
-
-## 其它小广告
-
-我会不定期到处分发一些测试版 Mod，您可以在各种群碰碰运气。
-
-如果对我们的工作感兴趣，请前往 GitHub 组织 **[ModinMobileSTS](https://github.com/ModinMobileSTS)** 查找关于尖塔1/2移动端 Mod 的相关信息（受版权原因影响，可能有部分内容未公开，敬请见谅）。
-
-友链：
-
-- [STS2-RitsuLib](https://github.com/BAKAOLC/STS2-RitsuLib/)：一个很重、很显式的基础库。提供了非常丰富但是手柄支持比较差的设置面板。大多数钩子倾向于多让您集中手动注册各种数据。也没有把 Keyword 塞进原生游戏而是分开单独判断。提供了丰富的 fmod 支持。
-- [lemonSpire2](https://github.com/freude916/lemonSpire2)：我制作的多人优化一键包，提供了多人聊天面板、看手牌、发送物品等等多个功能。
-- [JianBao233](https://github.com/Jianbao233/STS2_mod)：煎包 Mod 列表。推荐那款调整/隐藏 Mod 的。
-- [薄荷尖塔2](https://github.com/erasels/Minty-Spire-2)
