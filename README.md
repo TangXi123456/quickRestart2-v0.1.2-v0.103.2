@@ -9,7 +9,7 @@
 > **原作者与来源**
 > 本 Mod 改编自 **freude916** 的 [sts2-quickRestart](https://github.com/freude916/sts2-quickRestart)。
 > 原作者仓库：<https://github.com/freude916/sts2-quickRestart>
-> 当前版本为基于原作者代码适配 **Slay the Spire 2 v0.105.1** 的本地修改版。
+> 当前版本为基于原作者代码适配 **Slay the Spire 2 v0.107.0** 的本地修改版。
 
 
 

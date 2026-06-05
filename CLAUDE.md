@@ -10,6 +10,8 @@ This is a **Slay the Spire 2** mod that adds a "Retry" (重打) button to the pa
 
 The mod is built as a **C# / .NET 9** DLL that uses **Harmony** runtime patching. It targets the Godot 4.5.1 / MegaDot engine.
 
+Currently targets **Slay the Spire 2 v0.107.0**.
+
 ## Build Commands
 
 The project auto-detects the OS and Steam library path, then references `sts2.dll` and `0Harmony.dll` from the game installation.
@@ -63,7 +65,7 @@ The game loads mods via `[ModInitializer(nameof(MethodName))]` on a class. `Main
 **`QuickSaveLoad.cs`** — Orchestrates the save/load flow
 1. `SaveManager.Instance.LoadRunSave()` reads the autosave
 2. Tears down current run: resets action queue, stops music, fades out
-3. `RunManager.Instance.SetUpSavedSinglePlayer(runState, serializableRun)` reloads
+3. `RunManager.Instance.SetUpSavedSingleplayer(runState, serializableRun)` reloads
 4. Re-initializes networking and fades back in
 
 **`SaveAndQuitDisablePatch`** — Harmony prefix on `OnSaveAndQuitButtonPressed`
@@ -73,9 +75,8 @@ The game loads mods via `[ModInitializer(nameof(MethodName))]` on a class. `Main
 
 `SetUpSavedSinglePlayer` changed signature between game versions:
 - **older versions** (approx. v0.103-v0.105): synchronous `void SetUpSavedSinglePlayer(RunState, SerializableRun)`
-- **v0.104+ onward**: asynchronous `Task SetUpSavedSinglePlayer(...)` (requires `await`)
-
-The current codebase uses the synchronous call. If adapting to a newer game version where this method is async, add `await` before the call.
+- **v0.105.1-v0.106.x**: asynchronous `Task SetUpSavedSinglePlayer(...)` (requires `await`)
+- **v0.107.0+**: renamed to `Task SetUpSavedSingleplayer(...)` (lowercase 'p')
 
 ## Version Adaptation Workflow
 
@@ -90,7 +91,7 @@ When the game updates and the mod needs re-targeting:
    ilspycmd "path/to/sts2.dll" -o ./decompiled
    ```
    Check:
-   - `RunManager.SetUpSavedSinglePlayer` — sync or async?
+   - `RunManager.SetUpSavedSingleplayer` — renamed from SetUpSavedSinglePlayer in v0.107.0
    - `NPauseMenu._Ready` — `%ButtonContainer` path still valid?
    - `SaveManager.LoadRunSave()` — return type unchanged?
    - `RunManager.Instance.NetService.Type` — `NetGameType.Singleplayer` enum value unchanged?

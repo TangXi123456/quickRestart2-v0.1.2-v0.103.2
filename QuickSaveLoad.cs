@@ -42,8 +42,8 @@ public static class QuickSaveLoad
             RunManager.Instance.CleanUp();
 
             // 3. Reload from save (same flow as NMainMenu.OnContinueButtonPressedAsync)
-            // v0.105.1: SetUpSavedSinglePlayer is async Task, requires await.
-            await RunManager.Instance.SetUpSavedSinglePlayer(runState, serializableRun);
+            // v0.107.0: renamed to SetUpSavedSingleplayer (lowercase 'p')
+            await RunManager.Instance.SetUpSavedSingleplayer(runState, serializableRun);
             NGame.Instance.ReactionContainer.InitializeNetworking(new NetSingleplayerGameService());
             await NGame.Instance.LoadRun(runState, serializableRun.PreFinishedRoom);
             await NGame.Instance.Transition.FadeIn();
